@@ -52,6 +52,7 @@
         </div>
         <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
           <div class="flex-shrink-0 flex items-center">
+            <!--<img class="w-full  " src="{{asset('assets/images/head-logo/site-logo.png')}}"> -->
             <h1 class="text-white font-bold">NightlyCoders</h1>
           </div>
           <div class="hidden sm:block sm:ml-6">

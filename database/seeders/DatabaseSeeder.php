@@ -23,12 +23,20 @@ class DatabaseSeeder extends Seeder
 
         for ($i = 0; $i < 10; $i++){
             \App\Models\Category::factory()->create([
-                'name' => fake()->word(),
-            ]);
+                'name' => 'Category ' . $i,
 
-            \App\Models\Project::factory()->create([
-                'name' => fake()->word(),
             ]);
+        }
+
+        for ($j = 0; $j < 10; $j++){
+            \App\Models\Project::factory()->create(function (){
+                return [
+                    'name' => 'Project ' . rand(1, 10),
+                    'image' => fake()->imageUrl(),
+                    'content' => fake()->text(),
+                    'category_id' => rand(1, 10),
+                ];
+            });
         }
     }
 }

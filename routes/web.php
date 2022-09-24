@@ -4,6 +4,7 @@ use App\Models\Project;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\TeamController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -47,3 +48,5 @@ Route::get('/admin/category/show/{category}', [CategoryController::class, 'show'
 
 
 // ADMINISTRAION - Projects
+
+Route::get('/admin/team', [TeamController::class, 'index'])->name('admin-team');

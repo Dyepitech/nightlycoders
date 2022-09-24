@@ -38,5 +38,15 @@ class DatabaseSeeder extends Seeder
                 ];
             });
         }
+
+        for ($i = 0; $i < 10; $i++){
+            \App\Models\Team::factory()->create(function (){
+                return [
+                    'name' => 'Steffy ' . rand(1, 10),
+                    'image' => '/assets/images/team/team-01/image-01.jpg',
+                    'role' => fake()->text(),
+                ];
+            });
+        }
     }
 }

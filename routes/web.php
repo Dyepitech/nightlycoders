@@ -20,12 +20,11 @@ use App\Http\Controllers\CategoryController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
-Route::get('/team', function () {
+Route::get('/admin/test', function () {
     
-    return view('team.index', [
+    return view('layouts.admin.ui-elements', [
     ]);
 });
-
 
 
 // ADMINISTRAION
@@ -47,6 +46,16 @@ Route::delete('/admin/category/delete/{category}', [CategoryController::class, '
 Route::get('/admin/category/show/{category}', [CategoryController::class, 'show'])->name('admin-category-show');
 
 
+// ADMINISTRAION - Teams
+
+
+
 // ADMINISTRAION - Projects
 
 Route::get('/admin/team', [TeamController::class, 'index'])->name('admin-team');
+Route::get('/admin/teams/create', [TeamController::class, 'create'])->name('admin-teams-create');
+Route::post('/admin/teams/create', [TeamController::class, 'store'])->name('admin-teams-create');
+Route::get('/admin/teams/delete', [TeamController::class, 'delete'])->name('admin-teams-delete');
+Route::get('/admin/teams/delete/{team}', [TeamController::class, 'delete'])->name('admin-teams-delete');
+Route::get('/admin/teams/{team}/edit', [TeamController::class, 'edit'])->name('admin-teams-edit');
+Route::put('/admin/teams/{team}/edit', [TeamController::class, 'update']);

@@ -697,7 +697,7 @@
                       class="relative mx-5 overflow-hidden rounded-lg bg-white py-5 px-3"
                     >
                       <h3 class="text-base font-semibold text-dark">
-                        {{ $team->name }}
+                        {{ $team->firstname }} {{ $team->lastname }}
                       </h3>
                       <p class="text-sm text-body-color">{{ $team->role }}</p>
                       <div>

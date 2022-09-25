@@ -60,7 +60,7 @@ class CategoryController extends Controller
     {
         $category->delete();
 
-        return redirect()->route('admin-index')->with('status', 'La catégorie '.$category->name.' a été supprimée.');
+        return redirect()->route('admin-index')->with('status', 'La catégorie '.$category->name . ' a été supprimée.');
     }
 
     public function show(Category $category)

@@ -39,12 +39,15 @@ class DatabaseSeeder extends Seeder
             });
         }
 
-        for ($i = 0; $i < 10; $i++){
+        for ($i = 0; $i < 8; $i++){
             \App\Models\Team::factory()->create(function (){
+                $input = array("Développeur Front", "Graphiste", "Développeur Back", "Intégrateur");
                 return [
-                    'name' => 'Steffy ' . rand(1, 10),
-                    'image' => '/assets/images/team/team-01/image-01.jpg',
-                    'role' => fake()->text(),
+                    
+                    'firstname' => fake()->firstname(),
+                    'lastname' => fake()->lastName(),
+                    'image' => '/assets/images/team/team-01/image-0' . rand(1, 4). '.jpg',
+                    'role' => $input[array_rand($input)],
                 ];
             });
         }

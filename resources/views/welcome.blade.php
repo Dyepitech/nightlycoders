@@ -637,28 +637,30 @@
       </div>
     </div>
   </section>
-<!-- ====== Brand Section Start -->
-  <section class="bg-gray-200 py-20 lg:py-[120px]">
-    <div class="container">
-      <div class="-mx-4 flex flex-wrap">
-        <div class="w-full px-4">
-          <div class="flex flex-wrap items-center justify-center">
-            <a
-              href="javascript:void(0)"
-              class="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
-            >
-              <img
-                src="assets/images/brands/graygrids.svg"
-                alt="image"
-                class="h-10 w-full"
-              />
-            </a>
+    <!-- ====== Brands Section Start -->
+    <section class="bg-white w-full">
+        <div class="container">
+          <div class="-mx-4 flex flex-wrap">
+            <div class="w-full px-4">
+              <div class="flex flex-wrap items-center justify-center">
+                  @foreach ($brands as $brand)
+                <a
+                  href="javascript:void(0)"
+                  class="mx-4 flex w-[150px] items-center justify-center py-5 2xl:w-[180px]"
+                >
+                  <img
+                    src="{{ $brand->image }}"
+                    alt="image"
+                    class="h-10 w-full"
+                  />
+                </a>
+                @endforeach
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
-  <!-- ====== Brands Section End -->
+      </section>
+      <!-- ====== Brands Section End -->
   
       <!-- ====== Team Section Start -->
       <section class="pt-20 pb-10 lg:pt-[120px] lg:pb-20">

@@ -1,5 +1,6 @@
 import './bootstrap';
 
+import './App.jsx'
 
 (() => {
     var Ke = !1,

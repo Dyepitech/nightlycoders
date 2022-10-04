@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Brand;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -48,6 +49,17 @@ class DatabaseSeeder extends Seeder
                     'lastname' => fake()->lastName(),
                     'image' => '/assets/images/team/team-01/image-0' . rand(1, 4). '.jpg',
                     'role' => $input[array_rand($input)],
+                ];
+            });
+        }
+
+        for ($i = 0; $i < 8; $i++){
+            \App\Models\Brand::factory()->create(function (){
+                $input = array("assets/images/brands/graygrids.svg", "assets/images/brands/lineicons.svg", "assets/images/brands/ayroui.svg", "assets/images/brands/uideck.svg");
+                return [
+                    
+                    'name' => fake()->word(),
+                    'image' => $input[array_rand($input)],
                 ];
             });
         }

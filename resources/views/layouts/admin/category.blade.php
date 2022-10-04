@@ -32,7 +32,7 @@
 </div>
 @endif
 
-<a href="{{route('admin-category-create')}}" class="mb-5 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+<a href="{{ route('admin-category-create') }}" class="mb-5 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-700 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
     Nouvelle categorie
 </a>
 <div class="flex flex-wrap gap-6">

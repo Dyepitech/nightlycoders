@@ -13,7 +13,7 @@
     <div class="mx-auto mb-10 w-full max-w-[370px]">
       <div class="relative overflow-hidden rounded-lg">
         <img
-          src="{{ $team->image }}"
+          src="{{ asset($team->image) }}"
           alt="image"
           class="w-full"
         />

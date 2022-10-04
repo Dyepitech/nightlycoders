@@ -63,7 +63,7 @@ class TeamController extends Controller
         ]);
         
         if ($request->hasFile('picture')) {
-            $validated['picture'] = '/storage/'.$request->file('picture')->store('picture');
+            $validated['picture'] = $request->file('picture')->store('picture');
         }
 
         $team->update([

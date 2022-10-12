@@ -37,21 +37,21 @@
 </a>
 <div class="flex flex-wrap gap-6">
     @foreach ($brands as $brand)
-        <div class="justify-center flex-row p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 flex flex-wrap gap-6">
+        <div class="h-80 justify-center flex-row p-6 max-w-sm bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700 flex flex-wrap gap-6">
             <a class="" href="#">
                 <h5 class="text-center mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{$brand->name}}</h5>
-                <img src="/{{$brand->image}}" class="h-10 w-full"></img>
+                <img src="/{{$brand->image}}" class="object-contain  h-full w-full"></img>
             </a>
-            <div class="flex flex-wrap gap-5 mt-3 mb-3">
-                <a href="{{route('admin-brands-edit', $brand->id)}}" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+            <div class="h-50 flex flex-wrap items-end gap-5 mt-3 mb-3">
+                <a href="{{route('admin-brands-edit', $brand->id)}}" class="h-10 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-blue-500 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Modifier
                 </a>
                 <form action="{{ route('admin-category-delete', $brand->id) }}" method="post" class="inline">
-                <a href="{{route('admin-brands-delete', $brand->id)}}" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <a href="{{route('admin-brands-delete', $brand->id)}}" class="h-10 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-red-700 rounded-lg hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Supprimer
                 </a>
                 </form>
-                <a href="{{ route('admin-brands-show', $brand->id)}}" class="inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-500 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <a href="{{ route('admin-brands-show', $brand->id)}}" class="h-10 inline-flex items-center py-2 px-3 text-sm font-medium text-center text-white bg-green-500 rounded-lg hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
                     Voir
                 </a>
             </div>

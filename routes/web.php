@@ -69,6 +69,6 @@ Route::put('/admin/brands/{brands}/edit', [BrandController::class, 'update']);
 Route::get('/admin/brands/create', [BrandController::class, 'create'])->name('admin-brands-create');
 Route::post('/admin/brands/create', [BrandController::class, 'store'])->name('admin-brands-create');
 Route::get('/admin/brands/delete', [BrandController::class, 'delete'])->name('admin-brands-delete');
-Route::get('/admin/brands/delete/{brands}', [BrandController::class, 'delete'])->name('admin-brands-delete');
-Route::delete('/admin/brands/delete/{brands}', [BrandController::class, 'index'])->name('admin-brands-index');
+Route::get('/admin/brands/delete/{brand}', [BrandController::class, 'delete'])->name('admin-brands-delete');
+Route::delete('/admin/brands/delete/{brand}', [BrandController::class, 'index'])->name('admin-brands-index');
 Route::get('/admin/brands/show/{brand}', [BrandController::class, 'show'])->name('admin-brands-show');

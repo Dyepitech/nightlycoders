@@ -122,7 +122,7 @@
     </div>
   </nav>
   
-  <div class="max-w-7xl mx-auto px-3 py-6">
+  <div class="mx-auto px-3 py-6">
     @yield('content')
 </div>
   <!-- This example requires Tailwind CSS v2.0+ -->

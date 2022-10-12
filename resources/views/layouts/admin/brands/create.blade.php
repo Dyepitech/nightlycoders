@@ -39,7 +39,7 @@ class="mb-11 flex w-full rounded-lg border-l-[6px] border-[#F87171] bg-[#F87171]
 </div>
 @endif
 <div class="mt-5 md:col-span-2 md:mt-0">
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
         @csrf
       <div class="shadow sm:overflow-hidden sm:rounded-md">
         <div class="space-y-6 bg-white px-4 py-5 sm:p-6">

@@ -651,7 +651,7 @@
                   <img
                     src="{{ $brand->image }}"
                     alt="image"
-                    class="h-10 w-full"
+                    class="h-90 w-full"
                   />
                 </a>
                 @endforeach

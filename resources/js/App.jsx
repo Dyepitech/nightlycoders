@@ -1,9 +1,14 @@
 import React from 'react';
-import { createRoot } from 'react-dom/client'
+import { createRoot } from 'react-dom/client';
+import StepOne from './components/StepOne.jsx';
+import Devis from './components/Devis.jsx';
 
 export default function App(){
     return(
-        <h1>How To Install React in Laravel 9 with Vite</h1>
+        <div className="flex justify-center">
+            {/* <StepOne></StepOne> */}
+            <Devis></Devis>
+        </div>
     );
 }
 

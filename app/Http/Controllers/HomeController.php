@@ -15,12 +15,14 @@ class HomeController extends Controller
         $projects = Project::all();
         $teams = Team::all();
         $brands = Brand::all();
+        $user = auth()->user();
         
         return view('welcome', [
             'categories' => $category,
             'projects' => $projects,
             'teams' => $teams,
             'brands' => $brands,
+            'user' => $user,
         ]);
     }
 }

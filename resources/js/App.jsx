@@ -6,7 +6,6 @@ import Devis from './components/Devis.jsx';
 export default function App(){
     return(
         <div className="flex justify-center">
-            {/* <StepOne></StepOne> */}
             <Devis></Devis>
         </div>
     );

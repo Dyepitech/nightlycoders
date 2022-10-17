@@ -4,12 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Models\Devis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DevisController extends Controller
 {
     public function index()
     {
+        $user = auth()->user();
+
         return view('devis.index', [
+            'user' => $user,
         ]);
     }
 

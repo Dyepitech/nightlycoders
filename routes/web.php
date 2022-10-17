@@ -3,6 +3,7 @@
 use App\Models\Project;
 use App\Models\Category;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\BrandController;
@@ -75,5 +76,12 @@ Route::get('/admin/brands/show/{brand}', [BrandController::class, 'show'])->name
 // DEVIS
 
 Route::get('/devis', [DevisController::class, 'index'])->name('devis-home');
-
 Route::post('/devis/save', [DevisController::class, 'store'])->name('devis-save');
+
+// Authentication
+Route::get('/register', [AuthController::class, 'index'])->name('register-index')->middleware('guest');;
+Route::post('/register', [AuthController::class, 'store'])->name('register-store')->middleware('guest');;
+
+Route::get('/login', [AuthController::class, 'loginIndex'])->name('login-index')->middleware('guest');;
+Route::post('/login', [AuthController::class, 'login'])->name('login-login')->middleware('guest');;
+Route::get('/logout', [AuthController::class, 'logout'])->name('login-logout')->middleware('auth');;

@@ -940,9 +940,56 @@ class="pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
   <div class="-mx-4 flex flex-wrap">
     @foreach ($projects as $project)
     <div
+      x-cloak
       :class="showCards == 'all' || showCards == '{{ $project->category->name }}' ? 'block' : 'hidden' "
       class="w-full px-4 md:w-1/2 xl:w-1/3"
+      x-data="{modalOpen{{$project->id}}: false}"
     >
+    <div
+        x-cloak
+        x-show="modalOpen{{$project->id}}"
+        x-transition
+        class="fixed top-0 left-0 flex h-full min-h-screen w-full items-center justify-center bg-black bg-opacity-90 px-4 py-5"
+        style="z-index: 12 !important;"
+      >
+        <div
+          @click.outside="modalOpen{{$project->id}} = false"
+          class="w-full max-w-[570px] rounded-[20px] bg-white py-12 px-8 text-center md:py-[60px] md:px-[70px]"
+        >
+          <h3 class="pb-2 text-xl font-bold text-dark sm:text-2xl">
+            {{$project->name}}
+          </h3>
+          <span
+            class="mx-auto mb-6 inline-block h-1 w-[90px] rounded bg-primary"
+          ></span>
+          {{-- Mettre une condition si le projet possède un script d'installation et si il est runable --}}
+          <div class="p-4 mb-4 text-sm text-blue-700 bg-blue-100 rounded-lg dark:bg-blue-200 dark:text-blue-800" role="alert">
+            <span class="font-bold "><i class="fs-5 fa-solid fa-circle-info"></i> Ce projet peut être lancé directement sur notre site afin que vous puissiez avoir une prévisualition en direct !.
+          </div>
+          {{-- FIN DE LA CONDITION --}}
+          <img src="{{$project->image}}">
+          <p class="mb-10 text-base leading-relaxed text-body-color">
+            {{$project->content}}
+          </p>
+          <div class="-mx-3 flex flex-wrap">
+            <div class="w-1/2 px-3">
+              <button
+                x-on:click="modalOpen{{$project->id}} = !modalOpen{{$project->id}}"
+                class="block w-full rounded-lg border border-[#E9EDF9] p-3 text-center text-base font-medium text-dark transition hover:border-red-600 hover:bg-red-600 hover:text-white"
+              >
+                Cancel
+              </button>
+            </div>
+            <div class="w-1/2 px-3">
+              <button
+                class="block w-full rounded-lg border border-primary bg-primary p-3 text-center text-base font-medium text-white transition hover:bg-opacity-90"
+              >
+                View Details
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="relative mb-12">
         <div class="overflow-hidden rounded-lg">
           <img
@@ -960,12 +1007,12 @@ class="pt-20 pb-12 lg:pt-[120px] lg:pb-[90px]"
           <h3 class="mb-4 text-xl font-bold text-dark">
             {{ $project->name }}
           </h3>
-          <a
-            href="javascript:void(0)"
-            class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-gray-800 hover:text-white"
-          >
-            Plus d'infos
-          </a>
+          <button
+          x-on:click="modalOpen{{$project->id}} = !modalOpen{{$project->id}}"
+          class="inline-block rounded-md border py-3 px-7 text-sm font-semibold text-body-color transition hover:border-primary hover:bg-gray-800 hover:text-white"
+        >
+          Plus d'infos
+        </button>
         </div>
       </div>
     </div>

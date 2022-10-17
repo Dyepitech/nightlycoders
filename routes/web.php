@@ -29,9 +29,6 @@ Route::get('/admin/test', function () {
 });
 
 
-Route::get('/devis', [DevisController::class, 'index'])->name('devis-home');
-
-
 
 // ADMINISTRAION
 Route::get('/admin', function () {
@@ -72,3 +69,11 @@ Route::get('/admin/brands/delete', [BrandController::class, 'delete'])->name('ad
 Route::get('/admin/brands/delete/{brand}', [BrandController::class, 'delete'])->name('admin-brands-delete');
 Route::delete('/admin/brands/delete/{brand}', [BrandController::class, 'index'])->name('admin-brands-index');
 Route::get('/admin/brands/show/{brand}', [BrandController::class, 'show'])->name('admin-brands-show');
+
+
+
+// DEVIS
+
+Route::get('/devis', [DevisController::class, 'index'])->name('devis-home');
+
+Route::post('/devis/save', [DevisController::class, 'store'])->name('devis-save');

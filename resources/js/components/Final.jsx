@@ -1,9 +1,5 @@
-import React from 'react'
+import React from 'react';
 import { useState, CSSProperties } from "react";
-import RingLoader from "react-spinners/RingLoader";
-import { PDFViewer } from '@react-pdf/renderer';
-import Facture from './Facture';
-import { Document, Page, View, Text, StyleSheet } from '@react-pdf/renderer';
 
 const Final = ({ prevStep, handleChange, values }) => {
 
@@ -11,17 +7,11 @@ const Final = ({ prevStep, handleChange, values }) => {
         e.preventDefault();
         prevStep();
     }
-    let [loading, setLoading] = useState(true);
-    setTimeout(() => {
-        setLoading(false);
 
-    }, 2000);
-    let message;
-
-    if (loading == true) {
-        message = 
-        
-        <div
+    return (
+        <div className="flex justify-center flex-col">
+            <div className="flex justify-center flex-col mb-5">
+            <div
         className="mb-11 flex w-full rounded-lg border-l-[6px] border-transparent bg-white px-7 py-8 shadow-md md:p-9"
       >
         <div
@@ -54,17 +44,6 @@ const Final = ({ prevStep, handleChange, values }) => {
         </div>
         
       </div>
-    }
-    else {
-        message =   <PDFViewer>
-        <Facture />
-      </PDFViewer>
-    }
-
-    return (
-        <div className="flex justify-center flex-col">
-            <div className="flex justify-center flex-col mb-5">
-                {message}
             </div>
         </div>
     )

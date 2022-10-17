@@ -2,7 +2,9 @@ import React, { Component } from 'react'
 import PersonalDetails from './PersonalDetails';
 import Prestation from './Prestation';
 import StepOne from './StepOne'
-import Final from './Final'
+import axios from 'axios';
+import Final from './Final';
+
 export default class Devis extends Component {
     state = {
         step: 1,
@@ -10,15 +12,24 @@ export default class Devis extends Component {
         lastname: '',
         email: '',
         phone: '',
-        particular: 0,
-        profesionnal: 0,
+        situation: 'Particulier',
         society: '',
         prestation: '',
+        pages: 1,
     }
 
     prevStep = () => {
         const { step } = this.state;
         this.setState({ step: step - 1 });
+    }
+
+    saveDevis = async () => {
+        const res = await axios.post('http://localhost:8000/devis/save', this.state);
+        const { step } = this.state;
+
+        if (res.data.status === 200)
+            this.setState({ step: step + 1 });
+
     }
 
     nextStep = () => {
@@ -49,6 +60,7 @@ export default class Devis extends Component {
                     <Prestation
                         nextStep = {this.nextStep}
                         prevStep = {this.prevStep}
+                        saveDevis = {this.saveDevis}
                         handleChange = {this.handleChange}
                         values = {values}
                     />
@@ -60,13 +72,7 @@ export default class Devis extends Component {
                     prevStep = {this.prevStep}
                     handleChange = {this.handleChange}
                     values = {values}
-                />
-                    // <Confirmation />
-                )
-            case 4:
-                return (
-                    <h1>ok</h1>
-                    // <Success />
+                />  
                 )
             default:
             // do nothing

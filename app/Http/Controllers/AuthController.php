@@ -9,6 +9,10 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthController extends Controller
 {
+    public function rand_color() {
+        return str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
+    }
+
     public function index()
     {
 
@@ -28,15 +32,20 @@ class AuthController extends Controller
 
         ]);
 
-        $user = new User;
-
-        $user->firstname = $request->firstname;
-        $user->lastname = $request->lastname;
-        $user->email = $request->email;
-        $user->password = Hash::make($request->password);
-        $user->avatar = "https://ui-avatars.com/api/?rounded=true&name=". $request->firstname . '+'. $request->lastname;
-        $user->save();
-        return redirect()->route('home');
+        $user = User::where('email', '=', $request->email)->first();
+        if ($user === null) {
+            $user = new User;
+            $user->firstname = $request->firstname;
+            $user->lastname = $request->lastname;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->avatar = 'https://ui-avatars.com/api/?rounded=true&bold=true&background='. $this->rand_color(). '&name='. $request->firstname . '+'. $request->lastname;
+            $user->save();
+            return redirect()->route('home');
+        }
+        else {
+            redirect()->route('register')->with('errors', 'Ce compte existe déjà !');
+        }
     }
 
     public function loginIndex()

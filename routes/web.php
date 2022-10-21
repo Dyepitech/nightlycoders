@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\BrandController;
 use App\Http\Controllers\DevisController;
+use App\Http\Controllers\InvoiceController;
 use App\Http\Controllers\CategoryController;
 
 /*
@@ -79,9 +80,13 @@ Route::get('/devis', [DevisController::class, 'index'])->name('devis-home');
 Route::post('/devis/save', [DevisController::class, 'store'])->name('devis-save');
 
 // Authentication
-Route::get('/register', [AuthController::class, 'index'])->name('register-index')->middleware('guest');;
-Route::post('/register', [AuthController::class, 'store'])->name('register-store')->middleware('guest');;
+Route::get('/register', [AuthController::class, 'index'])->name('register-index')->middleware('guest');
+Route::post('/register', [AuthController::class, 'store'])->name('register-store')->middleware('guest');
 
-Route::get('/login', [AuthController::class, 'loginIndex'])->name('login-index')->middleware('guest');;
-Route::post('/login', [AuthController::class, 'login'])->name('login-login')->middleware('guest');;
-Route::get('/logout', [AuthController::class, 'logout'])->name('login-logout')->middleware('auth');;
+Route::get('/login', [AuthController::class, 'loginIndex'])->name('login-index')->middleware('guest');
+Route::post('/login', [AuthController::class, 'login'])->name('login-login')->middleware('guest');
+Route::get('/logout', [AuthController::class, 'logout'])->name('login-logout')->middleware('auth');
+
+
+//INVOICE
+Route::get('/invoice', [InvoiceController::class, 'index'])->name('invoice-home');

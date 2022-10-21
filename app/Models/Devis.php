@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Devis extends Model
 {
     use HasFactory;
-    
+
     protected $table = 'devis';
 
     protected $fillable = [
@@ -21,4 +21,9 @@ class Devis extends Model
         'situation',
         'society',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

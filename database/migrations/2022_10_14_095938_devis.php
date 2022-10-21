@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('prestation');
             $table->string('situation');
             $table->string('society')->nullable();
+            $table->integer('user_id');
             $table->timestamps();
 
         });

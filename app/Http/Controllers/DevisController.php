@@ -29,6 +29,7 @@ class DevisController extends Controller
             $devis->situation = $request->input('situation');
         $devis->prestation = $request->input('prestation');
         $devis->pages = $request->input('pages');
+        $devis->user_id = Auth::id();
 
         $devis->save();
 
@@ -37,4 +38,5 @@ class DevisController extends Controller
             'message' => 'Devis saved',
         ]);
     }
+
 }
